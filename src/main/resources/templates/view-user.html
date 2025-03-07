@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View User</title>
+    <link rel="stylesheet" th:href="@{/css/view-user.css}">
+</head>
+<body>
+<div class="container">
+    <h1>User Details</h1>
+    <p><strong>First Name:</strong> <span th:text="${employee.firstName}"></span></p>
+    <p><strong>Last Name:</strong> <span th:text="${employee.lastName}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${employee.email}"></span></p>
+    <button onclick="window.location.href='/'">Back</button>
+</div>
+</body>
+</html>
