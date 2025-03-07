@@ -13,36 +13,31 @@ public class UserController {
     @Autowired
     private EmployeeService employeeService;
 
-    // Show list of users
     @GetMapping("/")
     public String viewHomePage(Model model) {
         model.addAttribute("employees", employeeService.getAllEmployees());
-        return "index"; // index.html
+        return "index";
     }
 
-    // Show add user form
     @GetMapping("/new")
     public String showNewEmployeeForm(Model model) {
         model.addAttribute("employee", new Employee());
-        return "add-user"; // add-user.html
+        return "add-user";
     }
 
-    // Save user to database
     @PostMapping("/save")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.saveEmployee(employee);
-        return "redirect:/"; // Redirect back to home page
+        return "redirect:/";
     }
 
-    // Show edit user form
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") long id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
-        return "edit-user"; // edit-user.html
+        return "edit-user";
     }
 
-    // Update user details
     @PostMapping("/update/{id}")
     public String updateEmployee(@PathVariable("id") long id, @ModelAttribute("employee") Employee employee) {
         Employee existingEmployee = employeeService.getEmployeeById(id);
@@ -54,7 +49,6 @@ public class UserController {
         return "redirect:/";
     }
 
-    // Delete user
     @DeleteMapping("/delete/{id}")
     @ResponseBody
     public String deleteEmployee(@PathVariable("id") long id) {
@@ -62,11 +56,10 @@ public class UserController {
         return "User deleted successfully";
     }
 
-    // Show user details
     @GetMapping("/view/{id}")
     public String viewUser(@PathVariable("id") long id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
-        return "view-user"; // view-user.html
+        return "view-user";
     }
 }

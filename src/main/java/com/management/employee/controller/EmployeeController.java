@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin("*") // To allow frontend to access the API
+@CrossOrigin("*")
 public class EmployeeController {
 
     @Autowired

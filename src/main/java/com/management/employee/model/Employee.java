@@ -19,7 +19,6 @@ public class Employee {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    // Constructors
     public Employee() {}
 
     public Employee(String firstName, String lastName, String email) {
@@ -28,7 +27,6 @@ public class Employee {
         this.email = email;
     }
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

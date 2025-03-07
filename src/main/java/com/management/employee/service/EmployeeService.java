@@ -35,7 +35,7 @@ public class EmployeeService {
             existingEmployee.setEmail(employee.getEmail());
             return employeeRepository.save(existingEmployee);
         }
-        return null; // Return null if employee is not found (or throw an exception)
+        return null;
     }
 
 
